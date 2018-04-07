@@ -6,15 +6,7 @@
 </div>
 <br>
 <div class="row">
-    <div class="col-xs-12">
-        <div *ngFor="let recipe of recipes" class="card" style="width: 18rem;">
-            <img class="card-img-top" [src]="recipe.imagePath" [alt]="recipe.name">
-            <div class="card-body">
-                <h5 class="card-title">{{recipe.name}}</h5>
-                <p class="card-text">{{recipe.description}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <app-recipe-item></app-recipe-item>
+    <div class="col-xs-12">     
+        <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
     </div>
 </div>
