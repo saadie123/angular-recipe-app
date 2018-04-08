@@ -6,7 +6,8 @@ import { Recipe } from './recipe.model';
 @Injectable()
 export class RecipeService {
   private recipes: Recipe[] = [
-    new Recipe("A Test Recipe",
+    new Recipe(1,
+    "A Test Recipe",
     "This is just a test recipe",
     "https://static01.nyt.com/images/2015/08/14/dining/14ROASTEDSALMON/14ROASTEDSALMON-articleLarge.jpg",
     [
@@ -17,6 +18,12 @@ export class RecipeService {
   constructor(private shoppingListService:ShoppingListService) { }
   getRecipes(){
     return this.recipes.slice();
+  }
+  getRecipe(id){
+    let c = this.recipes.find(recipe=>{
+      return recipe.id === id
+    });
+    return c;
   }
   addIngredientToShoppingList(ingredients: Ingredient[]){
     this.shoppingListService.addIngredients(ingredients); 
